@@ -1,0 +1,41 @@
+.ant-modal-content {
+	top: 65px;
+	transition: height 0.5s linear;
+}
+
+.login-form {
+	max-width: 300px;
+}
+.login-form-forgot {
+	float: right;
+}
+.ant-col-rtl .login-form-forgot {
+	float: left;
+}
+.login-form-button {
+	width: 100%;
+}
+.auth-login {
+	padding: 8px 15px;
+	cursor: pointer;
+	color: white !important;
+	border-radius: 2px;
+	width: 85px;
+	height: 50px;
+}
+
+.facebook-login {
+	background-color: #1565c0;
+}
+
+.facebook-login:hover {
+	background-color: #2196f3;
+}
+
+.google-login {
+	background-color: #c62828;
+}
+
+.google-login:hover {
+	background-color: #f44336;
+}

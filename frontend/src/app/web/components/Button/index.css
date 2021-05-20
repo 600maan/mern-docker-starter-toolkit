@@ -1,0 +1,17 @@
+.dark-blue-red-button {
+	/* padding-left: 16px;
+    padding-right: 16px;
+    font-size: 16px;
+    background: #084965;
+    border: 0;
+    color: #fff;
+    text-align: center;
+    vertical-align: middle;
+    display: inline-block;
+    font-weight: 600; */
+}
+
+.dark-blue-red-button:hover {
+	/* background-color: #bb0000 !important; */
+	background-color: #053346 !important;
+}

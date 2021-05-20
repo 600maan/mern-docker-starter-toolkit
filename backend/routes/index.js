@@ -1,0 +1,37 @@
+const admin = require('./auth/admin');
+const client = require('./auth/client');
+const foodAndBeverage = require('./api/foodAndBeverage');
+const beautyAndHealth = require('./api/beautyAndHealth');
+const travelAndTour = require('./api/travelAndTour');
+const retailAndWholesale = require('./api/retailAndWholesale');
+const rsvpProduct = require('./api/rsvpProduct');
+const rsvpOrder = require('./api/rsvpOrder');
+const jobPortal = require('./api/jobPortal');
+const communityForum = require('./api/communityForum');
+const imageUpload = require('./imageUpload');
+const contact = require('./api/contact');
+const log = require('./api/log');
+const jobApplication = require('./api/jobApplication');
+const dashbaordAPI = require('./api/dashboard');
+const email = require('./api/email');
+const clientLogging = require('./api/client-logging.api');
+
+module.exports = (app) => {
+  app.use('/api/dashboard', dashbaordAPI);
+  app.use('/api/clientLogging', clientLogging);
+  app.use('/api/email', email);
+  app.use('/api/imageUpload', imageUpload);
+  app.use('/api/admin', admin);
+  app.use('/api/client', client);
+  app.use('/api/foodAndBeverage', foodAndBeverage);
+  app.use('/api/beautyAndHealth', beautyAndHealth);
+  app.use('/api/travelAndTour', travelAndTour);
+  app.use('/api/retailAndWholesale', retailAndWholesale);
+  app.use('/api/rsvpOrder', rsvpOrder);
+  app.use('/api/rsvpProduct', rsvpProduct);
+  app.use('/api/jobsPortal', jobPortal);
+  app.use('/api/jobsApplication', jobApplication);
+  app.use('/api/communityForum', communityForum);
+  app.use('/api/contactMessage', contact);
+  app.use('/api/log', log);
+};

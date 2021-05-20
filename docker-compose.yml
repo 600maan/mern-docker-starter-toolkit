@@ -1,0 +1,60 @@
+version: '3.8' # specify docker-compose version
+
+# Define the services/containers to be run
+services:
+ ####################################################
+ ### SETUP API SERVER CONTAINER
+ ####################################################
+ backend: # name of the first service
+  build: ./backend # specify the directory of the Dockerfile
+  image: backend # specify the image name
+  container_name: "backend"
+  environment: 
+   - MONGODB_URI=${MONGODB_URI}
+   - PORT=${PORT}
+  ports:
+   - ${PORT}:${PORT} #specify ports mapping outside_port:container_port
+  volumes:
+   - ./backend/client_log:/app/client_log # bind location on host's drive "/backend/client_log" to the directory in container "app/client_log"
+   - ./backend/server_log:/app/server_log # bind location on host's drive "/backend/server_log" to the directory in container "app/server_log" 
+  networks:
+   - appnetwork
+  links:
+   - mongo # link this service to the database service
+  restart: always
+
+ ####################################################
+ ### SETUP FRONT END CONTAINER
+ ####################################################
+ frontend: # name of the first service
+  build: ./frontend # specify the directory of the Dockerfile
+  image: frontend # specify the image name
+  container_name: "frontend"
+  ports:
+   - ${PRODUCTION_SERVER_PORT}:80 #specify ports mapping outside_port:container_port
+  networks:
+   - appnetwork
+  links:
+   - backend # link this service to the API service
+  restart: always
+ 
+ ####################################################
+ ### SETUP MONGODB DATABASE CONTAINER
+ ####################################################  
+ mongo: # name of the database service
+  image: mongo:latest # specify the image name
+  container_name: "mongo"
+  restart: always
+  ports:
+   - ${MONGO_PORT}:${MONGO_PORT} #specify ports mapping outside_port:container_port
+  volumes:
+   - ./mongo/data:/data/db # bind location on host's drive "./mongo/data" to the Mongo's data location in container "/data/db"
+  networks:
+   - appnetwork
+  environment:
+  # provide your admin credentials here
+   MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
+   MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
+   
+networks:
+  appnetwork:

@@ -1,0 +1,65 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "backend",
+  "main": "server.js",
+  "scripts": {
+    "seed": "node routes/seed.js",
+    "client-install": "npm install --prefix client",
+    "start": "npm run seed && node --max-old-space-size=1024 server.js",
+    "server": "nodemon server.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/600maan/rsvphk-backend.git"
+  },
+  "keywords": [
+    "ecommerce"
+  ],
+  "author": "600maan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rsvphk/rsvphk-backend/issues"
+  },
+  "homepage": "https://github.com/rsvphk/rsvphk-backend#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-fileupload": "^1.2.0",
+    "express-validator": "^6.6.1",
+    "google-auth-library": "^6.1.1",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.20",
+    "mongoose": "^5.10.4",
+    "mongoose-paginate": "^5.0.3",
+    "morgan": "^1.10.0",
+    "node-fetch": "^2.6.1",
+    "nodemailer": "^6.4.13",
+    "passport": "^0.4.1",
+    "passport-jwt": "^4.0.0",
+    "randomstring": "^1.1.5",
+    "validator": "^13.1.1",
+    "winston": "^3.3.3",
+    "winston-daily-rotate-file": "^4.5.0"
+  },
+  "devDependencies": {
+    "concurrently": "^5.3.0",
+    "eslint": "^7.9.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.0",
+    "nodemon": "^2.0.4"
+  },
+  "optionalDependencies": {
+    "fsevents": "^2.0.7"
+  },
+  "engines": {
+    "node": "^14",
+    "npm": "^6"
+  }
+}

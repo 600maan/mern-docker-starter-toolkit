@@ -1,0 +1,65 @@
+.social-icon {
+	transition: background-color ease-in 0.3s;
+}
+
+.insta:hover {
+	background-color: dodgerblue;
+}
+
+.facebook:hover {
+	background-color: cornflowerblue;
+}
+
+.header-sticky {
+	-webkit-animation: slide 0.5s forwards;
+	-webkit-animation-delay: 2s;
+	animation: slide 0.5s forwards;
+	animation-delay: 2s;
+}
+
+@-webkit-keyframes slide {
+	100% {
+		top: 0;
+	}
+}
+
+@keyframes slide {
+	100% {
+		top: 45px;
+	}
+}
+
+.sticky-header {
+	position: fixed !important;
+	top: 0 !important;
+}
+
+.non-sticky-header {
+	position: absolute;
+	top: 45px;
+	left: 0;
+}
+/* try taking sticky to the div wrapped both header and content so that both scroll along */
+
+.top-header-info:hover {
+	color: #ccc !important;
+}
+
+.header-menu:hover {
+	color: #ff5a5f;
+}
+
+@media screen and (max-width: 1199px) {
+	.navbar {
+		padding: 0px 0 !important;
+	}
+}
+
+@media screen and (max-width: 400px) {
+	.top-header-option {
+		font-size: 10px !important;
+	}
+	.top-header-social-icon {
+		display: none;
+	}
+}

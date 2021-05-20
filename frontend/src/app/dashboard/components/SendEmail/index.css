@@ -1,0 +1,3 @@
+.ant-drawer.ant-drawer-open .ant-drawer-mask {
+	opacity: 0.4 !important;
+}
